@@ -31,7 +31,7 @@ const Register = ({ isModal }) => {
     };
 
     const containerStyle = isModal ? { background: '#fff' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '2rem 0' };
-    const cardStyle = isModal ? { width: '100%', maxHeight: '80vh', overflowY: 'auto' } : { background: '#fff', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '100%', maxWidth: '400px' };
+    const cardStyle = isModal ? { width: '100%', maxHeight: '80vh', overflowY: 'auto', background: '#fff', color: '#1e293b' } : { background: '#fff', color: '#1e293b', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '100%', maxWidth: '400px' };
 
     return (
         <div style={containerStyle}>
@@ -44,7 +44,7 @@ const Register = ({ isModal }) => {
                         <input 
                             name="name"
                             type="text" 
-                            style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
+                            style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc', background: '#fff', color: '#1e293b' }}
                             value={formData.name}
                             onChange={handleChange}
                             required
@@ -55,7 +55,7 @@ const Register = ({ isModal }) => {
                         <input 
                             name="email"
                             type="email" 
-                            style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
+                            style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc', background: '#fff', color: '#1e293b' }}
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -66,7 +66,7 @@ const Register = ({ isModal }) => {
                         <input 
                             name="password"
                             type="password" 
-                            style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
+                            style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc', background: '#fff', color: '#1e293b' }}
                             value={formData.password}
                             onChange={handleChange}
                             required
@@ -76,7 +76,7 @@ const Register = ({ isModal }) => {
                         <label style={{ display: 'block', marginBottom: '0.5rem' }}>Account Type</label>
                         <select 
                             name="role"
-                            style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
+                            style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc', background: '#fff', color: '#1e293b' }}
                             value={formData.role}
                             onChange={handleChange}
                         >
@@ -134,7 +134,7 @@ const Register = ({ isModal }) => {
                                 <input 
                                     name="companyName"
                                     type="text" 
-                                    style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
+                                    style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc', background: '#fff', color: '#1e293b' }}
                                     value={formData.companyName}
                                     onChange={handleChange}
                                     required

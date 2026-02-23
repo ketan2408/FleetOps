@@ -32,7 +32,7 @@ const Login = ({ isModal }) => {
     };
 
     const containerStyle = isModal ? { background: '#fff' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '2rem 0' };
-    const cardStyle = isModal ? { width: '100%', maxHeight: '80vh', overflowY: 'auto' } : { background: '#fff', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '100%', maxWidth: '400px' };
+    const cardStyle = isModal ? { width: '100%', maxHeight: '80vh', overflowY: 'auto', background: '#fff', color: '#1e293b' } : { background: '#fff', color: '#1e293b', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '100%', maxWidth: '400px' };
 
     return (
         <div style={containerStyle}>
