@@ -31,8 +31,8 @@ const Login = ({ isModal }) => {
         }
     };
 
-    const containerStyle = isModal ? { background: '#fff' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '2rem 0', minHeight: '80vh' };
-    const cardStyle = isModal ? { width: '100%', background: '#fff', color: '#1e293b', padding: '2rem', borderRadius: '8px' } : { background: '#fff', color: '#1e293b', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '100%', maxWidth: '400px' };
+    const containerStyle = isModal ? { background: '#fff' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '2rem 0' };
+    const cardStyle = isModal ? { width: '100%', maxHeight: '80vh', overflowY: 'auto' } : { background: '#fff', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '100%', maxWidth: '400px' };
 
     return (
         <div style={containerStyle}>
@@ -49,14 +49,7 @@ const Login = ({ isModal }) => {
                         <label style={{ display: 'block', marginBottom: '0.5rem' }}>Email</label>
                         <input 
                             type="email" 
-                            style={{ 
-                                width: '100%', 
-                                padding: '0.75rem', 
-                                borderRadius: '4px', 
-                                border: '1px solid #ccc',
-                                background: '#fff',
-                                color: '#1e293b'
-                            }}
+                            style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -64,36 +57,22 @@ const Login = ({ isModal }) => {
                     </div>
                     
                     {!isResetMode ? (
-                        <div style={{ marginBottom: '0.5rem' }}>
+                        <div style={{ marginBottom: '1rem' }}>
                             <label style={{ display: 'block', marginBottom: '0.5rem' }}>Password</label>
                             <input 
                                 type="password" 
-                                style={{ 
-                                    width: '100%', 
-                                    padding: '0.75rem', 
-                                    borderRadius: '4px', 
-                                    border: '1px solid #ccc',
-                                    background: '#fff',
-                                    color: '#1e293b'
-                                }}
+                                style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                             />
                         </div>
                     ) : (
-                        <div style={{ marginBottom: '1.5rem' }}>
+                        <div style={{ marginBottom: '1rem' }}>
                             <label style={{ display: 'block', marginBottom: '0.5rem' }}>New Password</label>
                             <input 
                                 type="password" 
-                                style={{ 
-                                    width: '100%', 
-                                    padding: '0.75rem', 
-                                    borderRadius: '4px', 
-                                    border: '1px solid #ccc',
-                                    background: '#fff',
-                                    color: '#1e293b'
-                                }}
+                                style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
                                 value={newPassword}
                                 onChange={(e) => setNewPassword(e.target.value)}
                                 required
@@ -134,7 +113,7 @@ const Login = ({ isModal }) => {
                                 border: '1px solid #ccc', 
                                 borderRadius: '4px', 
                                 backgroundColor: 'transparent', 
-                                color: '#1e293b', 
+                                color: 'inherit', 
                                 fontSize: '1rem', 
                                 cursor: 'pointer' 
                             }}
@@ -146,7 +125,7 @@ const Login = ({ isModal }) => {
                 
                 {!isResetMode && (
                     <p style={{ textAlign: 'center', marginTop: '1rem' }}>
-                        Don't have an account? <Link to="/register" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Register</Link>
+                        Don't have an account? <Link to="/register">Register</Link>
                     </p>
                 )}
             </div>
