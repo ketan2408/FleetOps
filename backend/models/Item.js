@@ -29,6 +29,11 @@ const itemSchema = new mongoose.Schema({
         enum: ['MAINTENANCE', 'REPAIR', 'SERVICE', 'CAR', 'OTHER'],
         default: 'SERVICE'
     },
+    vehicleType: {
+        type: String,
+        enum: ['CAR', 'BIKE', 'TRUCK', 'BUS', 'OTHER'],
+        default: 'CAR'
+    },
     // Vehicle specific fields
     brand: String,
     model: String,

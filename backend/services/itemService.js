@@ -82,6 +82,7 @@ class ItemService {
                                 features: 1,
                                 previousOwners: 1,
                                 available: 1,
+                                vehicleType: 1,
                                 imageUrl: 1,
                                 stock: 1,
                                 createdAt: 1,
@@ -163,7 +164,7 @@ class ItemService {
         }
 
         // Only vendor can update certain fields
-        const allowedFields = ['name', 'description', 'price', 'category', 'available', 'imageUrl', 'stock', 'brand', 'model', 'year', 'transmission', 'fuelType', 'mileage', 'seatCount', 'condition', 'duration', 'warranty', 'color', 'vin', 'engineCapacity', 'features', 'previousOwners'];
+        const allowedFields = ['name', 'description', 'price', 'category', 'vehicleType', 'available', 'imageUrl', 'stock', 'brand', 'model', 'year', 'transmission', 'fuelType', 'mileage', 'seatCount', 'condition', 'duration', 'warranty', 'color', 'vin', 'engineCapacity', 'features', 'previousOwners'];
         Object.keys(updateData).forEach(key => {
             if (allowedFields.includes(key)) {
                 item[key] = updateData[key];

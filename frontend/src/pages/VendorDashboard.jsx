@@ -39,7 +39,8 @@ const VendorDashboard = () => {
         vin: '',
         engineCapacity: '',
         features: '',
-        previousOwners: 0
+        previousOwners: 0,
+        vehicleType: 'CAR'
     });
     const [listingTemplate, setListingTemplate] = useState('service'); // 'showroom', 'service', 'second_vehicle'
     const [vendorProfile, setVendorProfile] = useState({
@@ -224,7 +225,7 @@ const VendorDashboard = () => {
                 brand: '', model: '', year: new Date().getFullYear(), transmission: 'MANUAL',
                 fuelType: 'PETROL', mileage: '', seatCount: 4,
                 condition: 'NEW', duration: '', warranty: '', color: '', vin: '',
-                engineCapacity: '', features: '', previousOwners: 0
+                engineCapacity: '', features: '', previousOwners: 0, vehicleType: 'CAR'
             });
             // Reset template based on vendor type
             if (user?.vendor?.vendorType === 'VEHICLE_SALES') {
@@ -627,9 +628,21 @@ Thank you for using FleetOps!
                                     </div>
                                 </div>
 
-                                <div style={{ marginBottom: '1.5rem' }}>
-                                    <label style={{ display: 'block', marginBottom: '0.5rem', color: '#94a3b8' }}>Item Name / Title</label>
-                                    <input required className="form-control" style={{ background: '#1a1a1a', color: '#fff', border: '1px solid #444' }} value={newItem.name} onChange={e => setNewItem({...newItem, name: e.target.value})} placeholder={listingTemplate === 'service' ? "e.g. Engine Oil Change" : "e.g. 2024 Toyota Camry Platinum"} />
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+                                    <div>
+                                        <label style={{ display: 'block', marginBottom: '0.5rem', color: '#94a3b8' }}>Item Name / Title</label>
+                                        <input required className="form-control" style={{ background: '#1a1a1a', color: '#fff', border: '1px solid #444' }} value={newItem.name} onChange={e => setNewItem({...newItem, name: e.target.value})} placeholder={listingTemplate === 'service' ? "e.g. Engine Oil Change" : "e.g. 2024 Toyota Camry Platinum"} />
+                                    </div>
+                                    <div>
+                                        <label style={{ display: 'block', marginBottom: '0.5rem', color: '#94a3b8' }}>Vehicle Type</label>
+                                        <select className="form-control" style={{ background: '#1a1a1a', color: '#fff', border: '1px solid #444' }} value={newItem.vehicleType} onChange={e => setNewItem({...newItem, vehicleType: e.target.value})}>
+                                            <option value="CAR">🚗 Car</option>
+                                            <option value="BIKE">🏍️ Bike</option>
+                                            <option value="TRUCK">🚛 Truck</option>
+                                            <option value="BUS">🚌 Bus</option>
+                                            <option value="OTHER">🚛 Other</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 {/* SERVICE TEMPLATE FIELDS */}

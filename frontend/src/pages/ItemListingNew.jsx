@@ -197,6 +197,15 @@ const ItemListingNew = ({ onBook }) => {
                                             }}>
                                                 {item.category}
                                             </span>
+                                            {item.vehicleType && (
+                                                <span style={{ 
+                                                    background: 'rgba(37, 99, 235, 0.6)', color: '#fff', backdropFilter: 'blur(4px)',
+                                                    padding: '0.3rem 0.7rem', borderRadius: '8px', fontSize: '0.7rem', fontWeight: 'bold',
+                                                    border: '1px solid rgba(255,255,255,0.1)', marginLeft: '0.5rem'
+                                                }}>
+                                                    {item.vehicleType}
+                                                </span>
+                                            )}
                                         </div>
                                     </div>
 
