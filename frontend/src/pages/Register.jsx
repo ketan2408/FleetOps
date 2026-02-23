@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Heart, X } from 'lucide-react';
+import { Car, X } from 'lucide-react';
 
 const Register = ({ isModal }) => {
     const [formData, setFormData] = useState({
@@ -31,10 +31,10 @@ const Register = ({ isModal }) => {
         }
     };
 
-    const pinkPrimary = '#ff6b95';
-    const pinkLink = '#ff4d7d';
+    const brandColor = '#2563eb';
+    const brandLink = '#1d4ed8';
 
-    const containerStyle = isModal ? { background: 'transparent' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '4rem 0', minHeight: '100vh', background: 'linear-gradient(135deg, #fff5f8 0%, #ffffff 100%)' };
+    const containerStyle = isModal ? { background: 'transparent' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '4rem 0', minHeight: '100vh', background: 'linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%)' };
     const cardStyle = { 
         width: '100%', 
         maxWidth: '450px', 
@@ -47,7 +47,7 @@ const Register = ({ isModal }) => {
     };
 
     const headerGradientStyle = {
-        background: 'linear-gradient(to bottom, #fff5f8, #ffffff)',
+        background: 'linear-gradient(to bottom, #f0f7ff, #ffffff)',
         padding: '3rem 2rem 1rem 2rem',
         textAlign: 'center',
         borderBottom: '1px solid #fff'
@@ -83,12 +83,12 @@ const Register = ({ isModal }) => {
                 {/* Brand Header */}
                 <div style={headerGradientStyle}>
                     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-                        <div style={{ padding: '0.5rem', background: '#fff', borderRadius: '15px', boxShadow: '0 4px 12px rgba(255,107,149,0.1)' }}>
-                            <Heart size={40} fill={pinkPrimary} color={pinkPrimary} />
+                        <div style={{ padding: '0.5rem', background: '#fff', borderRadius: '15px', boxShadow: '0 4px 12px rgba(37,99,235,0.1)' }}>
+                            <Car size={40} fill={brandColor} color={brandColor} />
                         </div>
                     </div>
-                    <h1 style={{ color: pinkPrimary, margin: '0', fontSize: '2rem', fontWeight: '700' }}>Wedding Touch</h1>
-                    <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginTop: '0.2rem' }}>Premium Wedding Services</p>
+                    <h1 style={{ color: brandColor, margin: '0', fontSize: '2.3rem', fontWeight: '800', letterSpacing: '-0.5px' }}>FleetOps</h1>
+                    <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginTop: '0.2rem', fontWeight: '500' }}>Fleet Management Solutions</p>
                 </div>
 
                 <div style={{ padding: '2rem 3rem 3rem 3rem' }}>
@@ -104,7 +104,7 @@ const Register = ({ isModal }) => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                onFocus={(e) => e.target.style.borderBottomColor = brandColor}
                                 onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
                             />
                         </div>
@@ -117,7 +117,7 @@ const Register = ({ isModal }) => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                onFocus={(e) => e.target.style.borderBottomColor = brandColor}
                                 onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
                             />
                         </div>
@@ -130,7 +130,7 @@ const Register = ({ isModal }) => {
                                 value={formData.password}
                                 onChange={handleChange}
                                 required
-                                onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                onFocus={(e) => e.target.style.borderBottomColor = brandColor}
                                 onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
                             />
                         </div>
@@ -141,10 +141,10 @@ const Register = ({ isModal }) => {
                                 style={{ ...inputStyle, padding: '0.75rem 0' }}
                                 value={formData.role}
                                 onChange={handleChange}
-                                onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                onFocus={(e) => e.target.style.borderBottomColor = brandColor}
                                 onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
                             >
-                                <option value="USER">User / Wedding Manager</option>
+                                <option value="USER">User / Fleet Manager</option>
                                 <option value="VENDOR">Service Vendor</option>
                             </select>
                         </div>
@@ -155,7 +155,7 @@ const Register = ({ isModal }) => {
                                     <label style={labelStyle}>Vendor Type</label>
                                     <select 
                                         name="vendorType"
-                                        style={{ ...inputStyle, borderBottomColor: pinkPrimary, background: '#fff9fa' }}
+                                        style={{ ...inputStyle, borderBottomColor: brandColor, background: '#f8faff' }}
                                         value={formData.vendorType}
                                         onChange={(e) => {
                                             const type = e.target.value;
@@ -166,8 +166,8 @@ const Register = ({ isModal }) => {
                                             });
                                         }}
                                     >
-                                        <option value="REPAIR">💐 Decor & Flowers (Wedding Decorations)</option>
-                                        <option value="VEHICLE_SALES">📸 Photograpy (Capturing Moments)</option>
+                                        <option value="REPAIR">🔧 Repair Vendor (Vehicle Repairs & Services)</option>
+                                        <option value="VEHICLE_SALES">🚗 Vehicle Sales (New & Second-Hand Cars)</option>
                                     </select>
                                 </div>
 
@@ -180,7 +180,7 @@ const Register = ({ isModal }) => {
                                         value={formData.companyName}
                                         onChange={handleChange}
                                         required
-                                        onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                        onFocus={(e) => e.target.style.borderBottomColor = brandColor}
                                         onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
                                     />
                                 </div>
@@ -192,13 +192,13 @@ const Register = ({ isModal }) => {
                             padding: '1.2rem', 
                             border: 'none', 
                             borderRadius: '20px', 
-                            backgroundColor: pinkPrimary, 
+                            backgroundColor: brandColor, 
                             color: '#fff', 
                             fontSize: '1.2rem', 
                             fontWeight: '600',
                             cursor: 'pointer',
                             marginTop: '1rem',
-                            boxShadow: '0 10px 20px rgba(255,107,149,0.3)',
+                            boxShadow: '0 10px 20px rgba(37,99,235,0.2)',
                             transition: 'transform 0.2s'
                         }}
                         onMouseEnter={(e) => e.target.style.transform = 'scale(1.02)'}
@@ -208,7 +208,7 @@ const Register = ({ isModal }) => {
                         </button>
                     </form>
                     <p style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.9rem', color: '#64748b' }}>
-                        Already have an account? <Link to="/login" style={{ color: pinkLink, fontWeight: '600', textDecoration: 'none' }}>Login</Link>
+                        Already have an account? <Link to="/login" style={{ color: brandLink, fontWeight: '600', textDecoration: 'none' }}>Login</Link>
                     </p>
                 </div>
             </div>

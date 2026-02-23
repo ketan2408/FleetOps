@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Heart, X, Eye, EyeOff } from 'lucide-react';
+import { Car, X, Eye, EyeOff } from 'lucide-react';
 
 const Login = ({ isModal }) => {
     const [email, setEmail] = useState('');
@@ -33,7 +33,7 @@ const Login = ({ isModal }) => {
         }
     };
 
-    const containerStyle = isModal ? { background: 'transparent' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '4rem 0', minHeight: '100vh', background: 'linear-gradient(135deg, #fff5f8 0%, #ffffff 100%)' };
+    const containerStyle = isModal ? { background: 'transparent' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '4rem 0', minHeight: '100vh', background: 'linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%)' };
     const cardStyle = { 
         width: '100%', 
         maxWidth: '450px', 
@@ -44,8 +44,10 @@ const Login = ({ isModal }) => {
         position: 'relative'
     };
 
+    const brandColor = '#2563eb';
+
     const headerGradientStyle = {
-        background: 'linear-gradient(to bottom, #fff5f8, #ffffff)',
+        background: 'linear-gradient(to bottom, #f0f7ff, #ffffff)',
         padding: '3rem 2rem 1rem 2rem',
         textAlign: 'center',
         borderBottom: '1px solid #fff'
@@ -75,20 +77,18 @@ const Login = ({ isModal }) => {
         transition: 'border-color 0.3s'
     };
 
-    const pinkPrimary = '#ff6b95';
-
     return (
         <div style={containerStyle}>
             <div style={cardStyle}>
                 {/* Brand Header */}
                 <div style={headerGradientStyle}>
                     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-                        <div style={{ padding: '0.5rem', background: '#fff', borderRadius: '15px', boxShadow: '0 4px 12px rgba(255,107,149,0.1)' }}>
-                            <Heart size={40} fill={pinkPrimary} color={pinkPrimary} />
+                        <div style={{ padding: '0.5rem', background: '#fff', borderRadius: '15px', boxShadow: '0 4px 12px rgba(37,99,235,0.1)' }}>
+                            <Car size={40} fill={brandColor} color={brandColor} />
                         </div>
                     </div>
-                    <h1 style={{ color: pinkPrimary, margin: '0', fontSize: '2rem', fontWeight: '700' }}>Wedding Touch</h1>
-                    <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginTop: '0.2rem' }}>Premium Wedding Services</p>
+                    <h1 style={{ color: brandColor, margin: '0', fontSize: '2.3rem', fontWeight: '800', letterSpacing: '-0.5px' }}>FleetOps</h1>
+                    <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginTop: '0.2rem', fontWeight: '500' }}>Fleet Management Solutions</p>
                 </div>
 
                 <div style={{ padding: '2rem 3rem 3rem 3rem' }}>
@@ -97,7 +97,7 @@ const Login = ({ isModal }) => {
                     </h2>
                     
                     {error && <div style={{ color: 'var(--error)', marginBottom: '1.5rem', textAlign: 'center', fontSize: '0.9rem' }}>{error}</div>}
-                    {success && <div style={{ color: pinkPrimary, marginBottom: '1.5rem', textAlign: 'center', fontSize: '0.9rem' }}>{success}</div>}
+                    {success && <div style={{ color: brandColor, marginBottom: '1.5rem', textAlign: 'center', fontSize: '0.9rem' }}>{success}</div>}
                     
                     <form onSubmit={handleSubmit}>
                         <div style={inputGroupStyle}>
@@ -108,7 +108,7 @@ const Login = ({ isModal }) => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                onFocus={(e) => e.target.style.borderBottomColor = brandColor}
                                 onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
                             />
                         </div>
@@ -123,7 +123,7 @@ const Login = ({ isModal }) => {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         required
-                                        onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                        onFocus={(e) => e.target.style.borderBottomColor = brandColor}
                                         onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
                                     />
                                     <button 
@@ -144,7 +144,7 @@ const Login = ({ isModal }) => {
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
                                     required
-                                    onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                    onFocus={(e) => e.target.style.borderBottomColor = brandColor}
                                     onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
                                 />
                             </div>
@@ -154,12 +154,12 @@ const Login = ({ isModal }) => {
                             {!isResetMode ? (
                                 <>
                                     <div style={{ color: '#64748b' }}>
-                                        New user? <Link to="/register" style={{ color: pinkPrimary, fontWeight: '600', textDecoration: 'none' }}>Sign up</Link>
+                                        New user? <Link to="/register" style={{ color: brandColor, fontWeight: '600', textDecoration: 'none' }}>Sign up</Link>
                                     </div>
                                     <button 
                                         type="button" 
                                         onClick={() => setIsResetMode(true)}
-                                        style={{ background: 'none', border: 'none', color: pinkPrimary, cursor: 'pointer', fontWeight: '500' }}
+                                        style={{ background: 'none', border: 'none', color: brandColor, cursor: 'pointer', fontWeight: '500' }}
                                     >
                                         Forgot password?
                                     </button>
@@ -168,7 +168,7 @@ const Login = ({ isModal }) => {
                                 <button 
                                     type="button" 
                                     onClick={() => setIsResetMode(false)}
-                                    style={{ background: 'none', border: 'none', color: pinkPrimary, cursor: 'pointer', fontWeight: '500' }}
+                                    style={{ background: 'none', border: 'none', color: brandColor, cursor: 'pointer', fontWeight: '500' }}
                                 >
                                     Back to Login
                                 </button>
@@ -180,12 +180,12 @@ const Login = ({ isModal }) => {
                             padding: '1.2rem', 
                             border: 'none', 
                             borderRadius: '20px', 
-                            backgroundColor: pinkPrimary, 
+                            backgroundColor: brandColor, 
                             color: '#fff', 
                             fontSize: '1.2rem', 
                             fontWeight: '600',
                             cursor: 'pointer',
-                            boxShadow: '0 10px 20px rgba(255,107,149,0.3)',
+                            boxShadow: '0 10px 20px rgba(37,99,235,0.2)',
                             transition: 'transform 0.2s'
                         }}
                         onMouseEnter={(e) => e.target.style.transform = 'scale(1.02)'}
