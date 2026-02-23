@@ -1,0 +1,136 @@
+{
+  "admins": 1,
+  "customers": 1,
+  "vendors": 1,
+  "legacyUsers": 0,
+  "collections": [
+    {
+      "name": "users",
+      "type": "collection",
+      "options": {},
+      "info": {
+        "readOnly": false,
+        "uuid": "19043db8-e701-4044-a1d8-a1964d0a3dd3"
+      },
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    {
+      "name": "user",
+      "type": "collection",
+      "options": {},
+      "info": {
+        "readOnly": false,
+        "uuid": "225fc37d-0da2-4b5b-8d8a-0c58b0015e17"
+      },
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    {
+      "name": "subscriptionrecords",
+      "type": "collection",
+      "options": {},
+      "info": {
+        "readOnly": false,
+        "uuid": "834341b8-558b-4d80-9bdc-023158456124"
+      },
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    {
+      "name": "admin",
+      "type": "collection",
+      "options": {},
+      "info": {
+        "readOnly": false,
+        "uuid": "8de299da-d36c-4e06-98a7-c5ab07744aab"
+      },
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    {
+      "name": "vendor",
+      "type": "collection",
+      "options": {},
+      "info": {
+        "readOnly": false,
+        "uuid": "a704144d-b78a-4b25-a076-c87531a9eb35"
+      },
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    {
+      "name": "items",
+      "type": "collection",
+      "options": {},
+      "info": {
+        "readOnly": false,
+        "uuid": "a8adadf3-7c5a-4b31-b562-5e79c2a8da61"
+      },
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    {
+      "name": "plans",
+      "type": "collection",
+      "options": {},
+      "info": {
+        "readOnly": false,
+        "uuid": "bb1940ea-3085-4b58-986b-c7cd9935d890"
+      },
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    {
+      "name": "orders",
+      "type": "collection",
+      "options": {},
+      "info": {
+        "readOnly": false,
+        "uuid": "e2d5f255-59b6-46b1-90cd-ec8a56eb2c08"
+      },
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    }
+  ]
+}
