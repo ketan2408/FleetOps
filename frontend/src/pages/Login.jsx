@@ -31,8 +31,8 @@ const Login = ({ isModal }) => {
         }
     };
 
-    const containerStyle = isModal ? { background: 'transparent' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' };
-    const cardStyle = isModal ? { width: '100%', background: 'var(--card)', color: 'var(--text)', padding: '2rem', borderRadius: '8px' } : { background: 'var(--card)', color: 'var(--text)', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '100%', maxWidth: '400px' };
+    const containerStyle = isModal ? { background: '#fff' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '2rem 0', minHeight: '80vh' };
+    const cardStyle = isModal ? { width: '100%', background: '#fff', color: '#1e293b', padding: '2rem', borderRadius: '8px' } : { background: '#fff', color: '#1e293b', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '100%', maxWidth: '400px' };
 
     return (
         <div style={containerStyle}>
@@ -53,9 +53,9 @@ const Login = ({ isModal }) => {
                                 width: '100%', 
                                 padding: '0.75rem', 
                                 borderRadius: '4px', 
-                                border: '1px solid var(--secondary)',
-                                background: 'transparent',
-                                color: 'inherit'
+                                border: '1px solid #ccc',
+                                background: '#fff',
+                                color: '#1e293b'
                             }}
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -72,9 +72,9 @@ const Login = ({ isModal }) => {
                                     width: '100%', 
                                     padding: '0.75rem', 
                                     borderRadius: '4px', 
-                                    border: '1px solid var(--secondary)',
-                                    background: 'transparent',
-                                    color: 'inherit'
+                                    border: '1px solid #ccc',
+                                    background: '#fff',
+                                    color: '#1e293b'
                                 }}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -90,9 +90,9 @@ const Login = ({ isModal }) => {
                                     width: '100%', 
                                     padding: '0.75rem', 
                                     borderRadius: '4px', 
-                                    border: '1px solid var(--secondary)',
-                                    background: 'transparent',
-                                    color: 'inherit'
+                                    border: '1px solid #ccc',
+                                    background: '#fff',
+                                    color: '#1e293b'
                                 }}
                                 value={newPassword}
                                 onChange={(e) => setNewPassword(e.target.value)}
@@ -131,10 +131,10 @@ const Login = ({ isModal }) => {
                                 width: '100%', 
                                 marginTop: '1rem',
                                 padding: '0.75rem', 
-                                border: '1px solid var(--secondary)', 
+                                border: '1px solid #ccc', 
                                 borderRadius: '4px', 
                                 backgroundColor: 'transparent', 
-                                color: 'var(--text)', 
+                                color: '#1e293b', 
                                 fontSize: '1rem', 
                                 cursor: 'pointer' 
                             }}
@@ -146,7 +146,7 @@ const Login = ({ isModal }) => {
                 
                 {!isResetMode && (
                     <p style={{ textAlign: 'center', marginTop: '1rem' }}>
-                        Don't have an account? <Link to="/register" style={{ color: 'var(--primary)' }}>Register</Link>
+                        Don't have an account? <Link to="/register" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Register</Link>
                     </p>
                 )}
             </div>
