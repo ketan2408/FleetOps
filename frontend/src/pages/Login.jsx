@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { Heart, X, Eye, EyeOff } from 'lucide-react';
 
 const Login = ({ isModal }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [isResetMode, setIsResetMode] = useState(false);
@@ -31,103 +33,168 @@ const Login = ({ isModal }) => {
         }
     };
 
-    const containerStyle = isModal ? { background: '#fff' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '2rem 0' };
-    const cardStyle = isModal ? { width: '100%', maxHeight: '80vh', overflowY: 'auto', background: '#fff', color: '#1e293b' } : { background: '#fff', color: '#1e293b', padding: '2rem', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '100%', maxWidth: '400px' };
+    const containerStyle = isModal ? { background: 'transparent' } : { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '4rem 0', minHeight: '100vh', background: 'linear-gradient(135deg, #fff5f8 0%, #ffffff 100%)' };
+    const cardStyle = { 
+        width: '100%', 
+        maxWidth: '450px', 
+        background: '#fff', 
+        borderRadius: '40px', 
+        boxShadow: '0 20px 40px rgba(0,0,0,0.05)', 
+        overflow: 'hidden',
+        position: 'relative'
+    };
+
+    const headerGradientStyle = {
+        background: 'linear-gradient(to bottom, #fff5f8, #ffffff)',
+        padding: '3rem 2rem 1rem 2rem',
+        textAlign: 'center',
+        borderBottom: '1px solid #fff'
+    };
+
+    const inputGroupStyle = {
+        marginBottom: '2rem',
+        position: 'relative'
+    };
+
+    const labelStyle = {
+        display: 'block',
+        fontSize: '0.9rem',
+        color: '#94a3b8',
+        marginBottom: '0.2rem'
+    };
+
+    const inputStyle = {
+        width: '100%',
+        padding: '0.75rem 0',
+        border: 'none',
+        borderBottom: '1.5px solid #eee',
+        background: 'transparent',
+        fontSize: '1.1rem',
+        color: '#1e293b',
+        outline: 'none',
+        transition: 'border-color 0.3s'
+    };
+
+    const pinkPrimary = '#ff6b95';
 
     return (
         <div style={containerStyle}>
             <div style={cardStyle}>
-                <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-                    {isResetMode ? 'Reset Password' : 'Login to FleetOps'}
-                </h2>
-                
-                {error && <div style={{ color: 'var(--error)', marginBottom: '1rem', textAlign: 'center' }}>{error}</div>}
-                {success && <div style={{ color: 'var(--primary)', marginBottom: '1rem', textAlign: 'center' }}>{success}</div>}
-                
-                <form onSubmit={handleSubmit}>
-                    <div style={{ marginBottom: '1rem' }}>
-                        <label style={{ display: 'block', marginBottom: '0.5rem' }}>Email</label>
-                        <input 
-                            type="email" 
-                            style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
+                {/* Brand Header */}
+                <div style={headerGradientStyle}>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+                        <div style={{ padding: '0.5rem', background: '#fff', borderRadius: '15px', boxShadow: '0 4px 12px rgba(255,107,149,0.1)' }}>
+                            <Heart size={40} fill={pinkPrimary} color={pinkPrimary} />
+                        </div>
                     </div>
+                    <h1 style={{ color: pinkPrimary, margin: '0', fontSize: '2rem', fontWeight: '700' }}>Wedding Touch</h1>
+                    <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginTop: '0.2rem' }}>Premium Wedding Services</p>
+                </div>
+
+                <div style={{ padding: '2rem 3rem 3rem 3rem' }}>
+                    <h2 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#1e293b', marginBottom: '2.5rem' }}>
+                        {isResetMode ? 'Reset Password' : 'Login'}
+                    </h2>
                     
-                    {!isResetMode ? (
-                        <div style={{ marginBottom: '1rem' }}>
-                            <label style={{ display: 'block', marginBottom: '0.5rem' }}>Password</label>
+                    {error && <div style={{ color: 'var(--error)', marginBottom: '1.5rem', textAlign: 'center', fontSize: '0.9rem' }}>{error}</div>}
+                    {success && <div style={{ color: pinkPrimary, marginBottom: '1.5rem', textAlign: 'center', fontSize: '0.9rem' }}>{success}</div>}
+                    
+                    <form onSubmit={handleSubmit}>
+                        <div style={inputGroupStyle}>
+                            <label style={labelStyle}>User Id / Email</label>
                             <input 
-                                type="password" 
-                                style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                type="email" 
+                                style={inputStyle}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 required
+                                onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
                             />
                         </div>
-                    ) : (
-                        <div style={{ marginBottom: '1rem' }}>
-                            <label style={{ display: 'block', marginBottom: '0.5rem' }}>New Password</label>
-                            <input 
-                                type="password" 
-                                style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid #ccc' }}
-                                value={newPassword}
-                                onChange={(e) => setNewPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                    )}
+                        
+                        {!isResetMode ? (
+                            <div style={inputGroupStyle}>
+                                <label style={labelStyle}>Password</label>
+                                <div style={{ position: 'relative' }}>
+                                    <input 
+                                        type={showPassword ? "text" : "password"}
+                                        style={inputStyle}
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                        onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                        onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
+                                    />
+                                    <button 
+                                        type="button" 
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        style={{ position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer' }}
+                                    >
+                                        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                                    </button>
+                                </div>
+                            </div>
+                        ) : (
+                            <div style={inputGroupStyle}>
+                                <label style={labelStyle}>New Password</label>
+                                <input 
+                                    type="password" 
+                                    style={inputStyle}
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
+                                    required
+                                    onFocus={(e) => e.target.style.borderBottomColor = pinkPrimary}
+                                    onBlur={(e) => e.target.style.borderBottomColor = '#eee'}
+                                />
+                            </div>
+                        )}
 
-                    {!isResetMode && (
-                        <div style={{ textAlign: 'right', marginBottom: '1.5rem' }}>
-                            <button 
-                                type="button" 
-                                onClick={() => setIsResetMode(true)}
-                                style={{ 
-                                    background: 'none', 
-                                    border: 'none', 
-                                    color: 'var(--primary)', 
-                                    cursor: 'pointer',
-                                    fontSize: '0.9rem'
-                                }}
-                            >
-                                Forgot Password?
-                            </button>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', fontSize: '0.9rem' }}>
+                            {!isResetMode ? (
+                                <>
+                                    <div style={{ color: '#64748b' }}>
+                                        New user? <Link to="/register" style={{ color: pinkPrimary, fontWeight: '600', textDecoration: 'none' }}>Sign up</Link>
+                                    </div>
+                                    <button 
+                                        type="button" 
+                                        onClick={() => setIsResetMode(true)}
+                                        style={{ background: 'none', border: 'none', color: pinkPrimary, cursor: 'pointer', fontWeight: '500' }}
+                                    >
+                                        Forgot password?
+                                    </button>
+                                </>
+                            ) : (
+                                <button 
+                                    type="button" 
+                                    onClick={() => setIsResetMode(false)}
+                                    style={{ background: 'none', border: 'none', color: pinkPrimary, cursor: 'pointer', fontWeight: '500' }}
+                                >
+                                    Back to Login
+                                </button>
+                            )}
                         </div>
-                    )}
 
-                    <button type="submit" style={{ width: '100%', padding: '0.75rem', border: 'none', borderRadius: '4px', backgroundColor: 'var(--primary)', color: '#fff', fontSize: '1rem', cursor: 'pointer' }}>
-                        {isResetMode ? 'Reset' : 'Login'}
-                    </button>
-                    
-                    {isResetMode && (
-                        <button 
-                            type="button" 
-                            onClick={() => setIsResetMode(false)}
-                            style={{ 
-                                width: '100%', 
-                                marginTop: '1rem',
-                                padding: '0.75rem', 
-                                border: '1px solid #ccc', 
-                                borderRadius: '4px', 
-                                backgroundColor: 'transparent', 
-                                color: 'inherit', 
-                                fontSize: '1rem', 
-                                cursor: 'pointer' 
-                            }}
+                        <button type="submit" style={{ 
+                            width: '100%', 
+                            padding: '1.2rem', 
+                            border: 'none', 
+                            borderRadius: '20px', 
+                            backgroundColor: pinkPrimary, 
+                            color: '#fff', 
+                            fontSize: '1.2rem', 
+                            fontWeight: '600',
+                            cursor: 'pointer',
+                            boxShadow: '0 10px 20px rgba(255,107,149,0.3)',
+                            transition: 'transform 0.2s'
+                        }}
+                        onMouseEnter={(e) => e.target.style.transform = 'scale(1.02)'}
+                        onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                         >
-                            Back to Login
+                            {isResetMode ? 'Reset' : 'Login'}
                         </button>
-                    )}
-                </form>
-                
-                {!isResetMode && (
-                    <p style={{ textAlign: 'center', marginTop: '1rem' }}>
-                        Don't have an account? <Link to="/register">Register</Link>
-                    </p>
-                )}
+                    </form>
+                </div>
             </div>
         </div>
     );
